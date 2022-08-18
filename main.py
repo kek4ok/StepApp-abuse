@@ -1,5 +1,5 @@
+from config import login, password
 import time
-
 import requests
 import imaplib
 import email
@@ -40,8 +40,8 @@ proxies = {
 def get_code():
     code = ''
     imap_server = 'imap.gmail.com'
-    email_address = 'utxcxz290@gmail.com'
-    email_password = '[j,,bn322'
+    email_address = login
+    email_password = password
 
     imap = imaplib.IMAP4_SSL(imap_server)
     imap.login(email_address, email_password)
@@ -85,6 +85,10 @@ def verif(email_add):
 
     print("Cool!!!")
 
+def main():
+    for email in emails:
+        verif(email[:-1:])
 
-# print(get_code())
-verif('utxcx.z290@gmail.com')
+
+if __name__ == "__main__":
+    main()
